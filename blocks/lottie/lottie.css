@@ -3,13 +3,18 @@
   margin: 0 auto;
 }
 
+/* fixed box, reserved before the animation loads, so nothing shifts (CLS) */
 .lottie .lottie-player {
   width: 100%;
-  min-height: 200px;
+  aspect-ratio: 1 / 1;
 }
 
-.lottie.lottie-loaded .lottie-player {
-  min-height: 0;
+.lottie.wide {
+  max-width: 900px;
+}
+
+.lottie.wide .lottie-player {
+  aspect-ratio: 16 / 9;
 }
 
 .lottie .lottie-player svg {

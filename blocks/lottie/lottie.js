@@ -6,7 +6,9 @@
  * | Alt text (optional)               |
  *
  * Default: plays once when scrolled into view.
- * Variants: (loop) repeats, (hover) plays while hovered/focused.
+ * Variants: (loop) repeats, (hover) plays while hovered/focused,
+ * (wide) 16:9 box instead of the default square. The box size is fixed
+ * up front so nothing shifts when the animation loads (CLS).
  * Users who prefer reduced motion see a still final frame.
  */
 
@@ -27,9 +29,6 @@ async function startAnimation(block, container, src) {
   });
 
   anim.addEventListener('DOMLoaded', () => {
-    // size the box to the animation's own proportions
-    const { w, h } = anim.animationData;
-    if (w && h) container.style.aspectRatio = `${w} / ${h}`;
     block.classList.add('lottie-loaded');
     if (reduceMotion) {
       anim.goToAndStop(anim.totalFrames - 1, true);
