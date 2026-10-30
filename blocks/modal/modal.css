@@ -1,0 +1,46 @@
+body.modal-open {
+  overflow: hidden;
+}
+
+dialog.modal {
+  width: min(720px, calc(100vw - 32px));
+  max-height: calc(100dvh - 64px);
+  padding: 0;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: 0 10px 40px rgb(0 0 0 / 30%);
+}
+
+dialog.modal::backdrop {
+  background: rgb(0 0 0 / 50%);
+}
+
+dialog.modal .modal-content {
+  padding: 32px 24px 24px;
+  overflow-y: auto;
+}
+
+dialog.modal .modal-content .section {
+  padding: 0;
+}
+
+dialog.modal .modal-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 36px;
+  height: 36px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--light-color);
+  color: var(--text-color);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+dialog.modal .modal-close::before {
+  content: '\00D7';
+}

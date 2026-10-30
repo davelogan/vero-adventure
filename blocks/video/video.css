@@ -1,0 +1,12 @@
+.video {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.video video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background-color: var(--light-color);
+}
