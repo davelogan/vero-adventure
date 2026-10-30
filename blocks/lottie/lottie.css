@@ -1,0 +1,19 @@
+.lottie {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.lottie .lottie-player {
+  width: 100%;
+  min-height: 200px;
+}
+
+.lottie.lottie-loaded .lottie-player {
+  min-height: 0;
+}
+
+.lottie .lottie-player svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
