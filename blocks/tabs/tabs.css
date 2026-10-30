@@ -1,0 +1,38 @@
+.tabs .tabs-list {
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  border-bottom: 2px solid var(--light-color);
+}
+
+.tabs .tabs-tab {
+  flex: 0 0 auto;
+  margin: 0;
+  padding: 0.6em 1.2em;
+  border: 0;
+  border-bottom: 3px solid transparent;
+  border-radius: 0;
+  background: none;
+  color: var(--text-color);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.tabs .tabs-tab:hover {
+  background-color: var(--light-color);
+}
+
+.tabs .tabs-tab[aria-selected='true'] {
+  border-bottom-color: var(--link-color);
+  color: var(--link-color);
+}
+
+.tabs .tabs-panel {
+  padding: 1em 0;
+}
+
+.tabs .tabs-panel:focus-visible {
+  outline: 2px solid var(--link-color);
+  outline-offset: 4px;
+}

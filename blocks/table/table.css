@@ -1,0 +1,36 @@
+.table .table-scroll {
+  overflow-x: auto;
+}
+
+.table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--body-font-size-s);
+}
+
+.table th,
+.table td {
+  padding: 0.6em 0.8em;
+  border-bottom: 1px solid var(--light-color);
+  text-align: left;
+  vertical-align: top;
+}
+
+.table th {
+  border-bottom: 2px solid var(--dark-color);
+  font-weight: 700;
+}
+
+.table td p,
+.table th p {
+  margin: 0;
+}
+
+.table.striped tbody tr:nth-child(odd) {
+  background-color: var(--light-color);
+}
+
+.table.bordered th,
+.table.bordered td {
+  border: 1px solid var(--dark-color);
+}
