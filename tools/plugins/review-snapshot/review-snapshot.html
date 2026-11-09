@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Review Snapshot</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="data:,">
+    <style>
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        font-size: 13px; background: #f5f4fe; color: #1a1a2e;
+        padding: 12px; display: flex; flex-direction: column; gap: 12px;
+      }
+      section {
+        background: #fff; border: 1px solid #e0dfff; border-radius: 8px;
+        padding: 10px 12px; display: flex; flex-direction: column; gap: 8px;
+      }
+      h2 { font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; color: #7155fa; }
+      dl { display: grid; grid-template-columns: auto 1fr; gap: 2px 10px; font-size: 12px; }
+      dt { color: #777; }
+      dd { word-break: break-all; }
+      .row { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+      input, select {
+        flex: 1; min-width: 120px; padding: 6px 8px; border: 1px solid #ddd;
+        border-radius: 6px; font-size: 12px; background: #fff;
+      }
+      input:focus, select:focus { outline: none; border-color: #7155fa; }
+      button {
+        padding: 6px 12px; border-radius: 16px; border: 1px solid #ddd;
+        background: #fff; cursor: pointer; font-size: 12px; font-weight: 600; white-space: nowrap;
+      }
+      button:hover:not(:disabled) { border-color: #7155fa; color: #7155fa; }
+      button.primary { background: linear-gradient(95deg, #b539c8, #7155fa); color: #fff; border: none; }
+      button.primary:hover:not(:disabled) { color: #fff; opacity: 0.9; }
+      button:disabled { opacity: 0.4; cursor: default; }
+      .status { font-size: 12px; padding: 6px 8px; border-radius: 6px; background: #f0eeff; }
+      .status.ok { background: #e6f6ec; color: #1b6b3a; }
+      .status.error { background: #fdecec; color: #a12a2a; }
+      .status:empty { display: none; }
+      ul.resources { list-style: none; display: flex; flex-direction: column; gap: 4px; font-size: 12px; }
+      ul.resources li { display: flex; justify-content: space-between; gap: 8px; }
+      ul.resources a { color: #7155fa; }
+      .muted { color: #999; font-size: 12px; }
+      ol.log {
+        list-style: none; font-family: ui-monospace, Menlo, monospace; font-size: 11px;
+        max-height: 220px; overflow-y: auto; display: flex; flex-direction: column; gap: 4px;
+      }
+      ol.log li { border-left: 3px solid #ccc; padding-left: 6px; word-break: break-all; }
+      ol.log li.ok { border-color: #2e9d5b; }
+      ol.log li.error { border-color: #d64545; }
+      ol.log .detail { color: #a12a2a; }
+    </style>
+  </head>
+  <body>
+    <section>
+      <h2>This page</h2>
+      <dl>
+        <dt>Site</dt><dd id="ctx-site">…</dd>
+        <dt>Path</dt><dd id="ctx-path">…</dd>
+        <dt>Signed in</dt><dd id="ctx-token">…</dd>
+        <dt>Preview</dt><dd id="ctx-preview">…</dd>
+      </dl>
+      <div class="row">
+        <button id="btn-preview" disabled>Preview page</button>
+      </div>
+    </section>
+
+    <section>
+      <h2>Review snapshot</h2>
+      <div class="row">
+        <select id="snapshot-select" disabled><option>Loading…</option></select>
+        <button id="btn-refresh" disabled>Refresh</button>
+      </div>
+      <div class="row">
+        <input id="new-name" type="text" placeholder="new-snapshot-name" />
+        <button id="btn-create" disabled>Create</button>
+      </div>
+      <div class="row">
+        <button id="btn-add" class="primary" disabled>Add this page</button>
+      </div>
+      <div class="status" id="status"></div>
+    </section>
+
+    <section>
+      <h2>Pages in snapshot</h2>
+      <ul class="resources" id="resources"><li class="muted">Select a snapshot.</li></ul>
+    </section>
+
+    <section>
+      <h2>Request log</h2>
+      <ol class="log" id="log"></ol>
+    </section>
+
+    <script src="https://da.live/nx/utils/sdk.js" type="module"></script>
+    <script src="/tools/plugins/review-snapshot/review-snapshot.js" type="module"></script>
+  </body>
+</html>
