@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8" />
     <title>Review Snapshot</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="data:,">
@@ -32,7 +33,16 @@
       button:hover:not(:disabled) { border-color: #7155fa; color: #7155fa; }
       button.primary { background: linear-gradient(95deg, #b539c8, #7155fa); color: #fff; border: none; }
       button.primary:hover:not(:disabled) { color: #fff; opacity: 0.9; }
+      button.danger { border-color: #d64545; color: #a12a2a; }
+      button.danger:hover:not(:disabled) { border-color: #a12a2a; color: #fff; background: #d64545; }
+      button.danger.confirming { background: #d64545; color: #fff; }
       button:disabled { opacity: 0.4; cursor: default; }
+      .lock-state {
+        font-size: 12px; padding: 6px 8px; border-radius: 6px;
+        background: #fff6e0; color: #7a5200; border: 1px solid #f0d58a;
+      }
+      .lock-state[hidden], .row[hidden] { display: none; }
+      select.locked { color: #999; }
       .status { font-size: 12px; padding: 6px 8px; border-radius: 6px; background: #f0eeff; }
       .status.ok { background: #e6f6ec; color: #1b6b3a; }
       .status.error { background: #fdecec; color: #a12a2a; }
@@ -75,8 +85,13 @@
         <input id="new-name" type="text" placeholder="new-snapshot-name" />
         <button id="btn-create" disabled>Create</button>
       </div>
+      <div class="lock-state" id="lock-state" hidden></div>
       <div class="row">
         <button id="btn-add" class="primary" disabled>Add this page</button>
+      </div>
+      <div class="row" id="review-actions" hidden>
+        <button id="btn-reject">🔓 Reject &amp; unlock</button>
+        <button id="btn-approve" class="danger">Approve &amp; publish</button>
       </div>
       <div class="status" id="status"></div>
     </section>
