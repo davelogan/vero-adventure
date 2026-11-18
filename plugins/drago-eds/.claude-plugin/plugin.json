@@ -1,0 +1,8 @@
+{
+  "name": "drago-eds",
+  "description": "Project Drago standards for AEM Edge Delivery Services block development: block structure, CSS design tokens and performance.",
+  "author": {
+    "name": "David Logan"
+  },
+  "keywords": ["aem", "edge-delivery-services", "eds", "blocks", "css", "performance"]
+}
