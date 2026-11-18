@@ -1,0 +1,14 @@
+{
+  "name": "drago-skills",
+  "description": "Claude Code skills for Project Drago AEM Edge Delivery Services development.",
+  "owner": {
+    "name": "David Logan"
+  },
+  "plugins": [
+    {
+      "name": "drago-eds",
+      "source": "./plugins/drago-eds",
+      "description": "Drago EDS standards: eds-block-standards, eds-design-standards, eds-performance."
+    }
+  ]
+}
